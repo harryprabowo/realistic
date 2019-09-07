@@ -1,0 +1,42 @@
+$sidebar-width: 3.5em;
+
+#Sidebar {
+    position: fixed;
+    top: 0;
+    background-color: darkslategray;
+    width: $sidebar-width;
+    height: 100vh;
+
+    & ul {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.sidebar-button {
+    & a {
+        color: white;    
+        margin: 1em 0;
+        text-align: center;
+
+        &.active {
+            & i {
+                background-color: rgba(0, 0, 0, 0.200);
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.200);
+                }
+            }
+        }
+
+        & i {
+            padding: 20px 0;
+            width: 100%;
+            transition: 0.2s;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.100);
+            }
+        }
+    }
+}
