@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/user/public_html/realistic
-    - /bin/cp -R build $DEPLOYPATH
+    - /bin/cp -R /build/* $DEPLOYPATH
