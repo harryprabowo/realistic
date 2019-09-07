@@ -35,10 +35,13 @@ const App = () => {
             <Route key={index + 1} path={'/' + link.link} exact component={link.component} />
           ))
         }
-        <Route render={() => <Redirect to='/404'/>} />
-        <Route path='/404' exact component={NotFound}/>
-        <Route exact path='/' render={() => <Redirect to='/dashboard'/>} />
-      </div> 
+
+        {/* Edge cases handling */}
+        <Route render={() => <Redirect to='/404' />} />
+        <Route path='/404' exact component={NotFound} />
+        
+        <Route exact path='/' render={() => <Redirect to='/dashboard' />} />
+      </div>
     </Router>
   )
 }
