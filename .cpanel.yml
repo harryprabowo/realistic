@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/kappaid/public_html/realistic
+    - /bin/cp -R build $DEPLOYPATH
