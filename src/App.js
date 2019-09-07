@@ -25,7 +25,7 @@ const App = () => {
       <Sidebar.Container>
         {
           links.map((link, index) => (
-            <Sidebar.Button key={index + 1}>
+            <Sidebar.Button key={index + 1} overlay={link.name}>
               <NavLink to={`/` + link.link} activeClassName="active">{link.icon}</NavLink>
             </Sidebar.Button>
           ))
