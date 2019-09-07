@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
-function App() {
+import { Sidebar } from './components'
+import {
+  Dashboard,
+  About,
+} from './containers'
+
+import './App.scss';
+
+// List of sidebar buttons
+const links = [
+  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-lg fa-home" />, Dashboard),
+  new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-lg fa-info-circle" />, About),
+]
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Sidebar.Container>
+        {
+          links.map((link, index) => (
+            <Sidebar.Button key={index + 1}>
+              <NavLink to={`/` + link.link} activeClassName="active">{link.icon}</NavLink>
+            </Sidebar.Button>
+          ))
+        }
+      </Sidebar.Container>
+      <div id="App">
+        {
+          links.map((link, index) => (
+            <Route key={index + 1} path={'/' + link.link} exact component={link.component} />
+          ))
+        }
+      </div> 
+    </Router>
+  )
 }
 
 export default App;
