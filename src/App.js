@@ -33,6 +33,7 @@ const App = () => {
       </Sidebar.Container>
 
       <div id="App">
+        <br/>
         {
           links.map((link, index) => (
             <Route key={index + 1} path={'/' + link.link} exact component={link.component} />

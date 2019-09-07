@@ -1,9 +1,10 @@
 $sidebar-width: 3.5em;
+$active-button-color: rgba(0, 0, 0, 0.300);
 
 #Sidebar {
     position: fixed;
     top: 0;
-    background-color: darkslategray;
+    background-color: rgb(41, 75, 110);
     width: $sidebar-width;
     height: 100vh;
 
@@ -21,10 +22,10 @@ $sidebar-width: 3.5em;
 
         &.active {
             & i {
-                background-color: rgba(0, 0, 0, 0.200);
+                background-color: $active-button-color;
 
                 &:hover {
-                    background-color: rgba(0, 0, 0, 0.200);
+                    background-color: $active-button-color;
                 }
             }
         }
