@@ -1,0 +1,8 @@
+$sidebar-width: 3.5em; //exists in Sidebar component
+$app-background-color: white;
+
+#App {
+  height: 100vh;
+  margin-left: $sidebar-width;
+  background-color: $app-background-color;
+}

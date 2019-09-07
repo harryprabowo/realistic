@@ -3,7 +3,7 @@ import React, {Fragment} from 'react'
 const Dashboard = () => {
     return (
         <Fragment>
-            Hello world!
+            <h1>Hello world!</h1>
         </Fragment>
     )
 }
