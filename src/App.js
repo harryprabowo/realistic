@@ -15,7 +15,7 @@ import './App.scss';
  * Arguments: link, name, icon, component (in this order)
 **/
 const links = [
-  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-lg fa-home" />, Dashboard),
+  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-lg fa-globe-asia" />, Dashboard),
   new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-lg fa-info-circle" />, About),
 ]
 
@@ -33,7 +33,6 @@ const App = () => {
       </Sidebar.Container>
 
       <div id="App">
-        <br/>
         <Switch>
           {
             links.map((link, index) => (

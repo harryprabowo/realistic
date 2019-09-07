@@ -1,11 +1,30 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
-const Card = () => {
+import './style.scss'
+
+const Container = props => {
     return (
-        <Fragment>
-            Hello world!
-        </Fragment>
+        <div className="card">
+            {props.children}
+        </div>
     )
 }
 
-export default Card
+const Title = props => {
+    return (
+        <h5>{props.children}</h5>
+    )
+}
+
+const Content = props => {
+    return (
+        <span>{props.children}</span>
+    )
+}
+
+
+export default {
+    Container,
+    Title,
+    Content
+}

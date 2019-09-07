@@ -1,10 +1,20 @@
-import React, {Fragment} from 'react'
+import React from 'react'
+
+import { Card } from '../../components'
+
+import './style.scss'
+
 
 const Dashboard = () => {
     return (
-        <Fragment>
-            <h1>Hello world!</h1>
-        </Fragment>
+        <div id="Dashboard">
+            <div className="filter-card">
+                <Card.Container>
+                    <Card.Title>A Card Title</Card.Title>
+                    <Card.Content>This is a card.</Card.Content>
+                </Card.Container>
+            </div>
+        </div>
     )
 }
 

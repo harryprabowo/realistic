@@ -47,4 +47,8 @@ const Button = props => {
     )
 }
 
-export default { ButtonPrototype, Container, Button }
+export default { 
+    ButtonPrototype, 
+    Container, 
+    Button
+}
