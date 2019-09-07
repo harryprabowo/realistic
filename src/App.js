@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Redirect, Switch } from 'react-router-dom';
 
 import { Sidebar } from './components'
 import {
@@ -34,17 +34,19 @@ const App = () => {
 
       <div id="App">
         <br/>
-        {
-          links.map((link, index) => (
-            <Route key={index + 1} path={'/' + link.link} exact component={link.component} />
-          ))
-        }
+        <Switch>
+          {
+            links.map((link, index) => (
+              <Route key={index + 1} path={'/' + link.link} exact component={link.component} />
+            ))
+          }
 
-        {/* Edge cases handling */}
-        <Route render={() => <Redirect to='/404' />} />
-        <Route path='/404' exact component={NotFound} />
+          {/* Edge cases handling */}
+          <Route exact path='/' render={() => <Redirect to='/dashboard' />} />
 
-        <Route exact path='/' render={() => <Redirect to='/dashboard' />} />
+          <Route path='/404' exact component={NotFound} />
+          <Route render={() => <Redirect to='/404' />} />
+        </Switch>
       </div>
     </Router>
   )
