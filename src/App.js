@@ -10,7 +10,10 @@ import {
 
 import './App.scss';
 
-// List of sidebar buttons
+/**
+ * List of sidebar buttons
+ * Arguments: link, name, icon, component (in this order)
+**/
 const links = [
   new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-lg fa-home" />, Dashboard),
   new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-lg fa-info-circle" />, About),
@@ -39,7 +42,7 @@ const App = () => {
         {/* Edge cases handling */}
         <Route render={() => <Redirect to='/404' />} />
         <Route path='/404' exact component={NotFound} />
-        
+
         <Route exact path='/' render={() => <Redirect to='/dashboard' />} />
       </div>
     </Router>
