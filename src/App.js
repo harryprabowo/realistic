@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-dom';
 
 import { Sidebar } from './components'
 import {
   Dashboard,
   About,
+  NotFound
 } from './containers'
 
 import './App.scss';
@@ -27,12 +28,16 @@ const App = () => {
           ))
         }
       </Sidebar.Container>
+
       <div id="App">
         {
           links.map((link, index) => (
             <Route key={index + 1} path={'/' + link.link} exact component={link.component} />
           ))
         }
+        <Route render={() => <Redirect to='/404'/>} />
+        <Route path='/404' exact component={NotFound}/>
+        <Route exact path='/' render={() => <Redirect to='/dashboard'/>} />
       </div> 
     </Router>
   )
