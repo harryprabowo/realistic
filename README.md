@@ -10,6 +10,6 @@ Make sure you have **Yarn** installed.
 ## Installation
 1. Clone this repository.
 2. In project root, open a terminal and do `yarn`, and wait for completion.
-3. To run this project, do `yarn start`; to deploy, first do `yarn build`.
+3. To run this project, do `yarn start`; to deploy, first do `yarn build`, and deploy build folder.
 
 More scripts in `package.json` file.
