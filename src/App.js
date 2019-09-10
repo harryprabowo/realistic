@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, NavLink, Redirect, Switch } from 'react
 import { Sidebar } from './components'
 import {
   Dashboard,
+  Analytics,
   About,
   NotFound
 } from './containers'
@@ -16,6 +17,7 @@ import './App.scss';
 **/
 const links = [
   new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-lg fa-globe-asia" />, Dashboard),
+  new Sidebar.ButtonPrototype("analytics", "Analytics", <i className="fas fa-lg fa-chart-area" />, Analytics),
   new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-lg fa-info-circle" />, About),
 ]
 
