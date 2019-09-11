@@ -1,10 +1,34 @@
+@import '../../assets/topography-pattern.scss';
+
 #Dashboard {
     height: 100vh;
-    text-align: center;
+    background-color:#d8e0e2;
+    overflow: hidden;
+    background-image: $topography-pattern;
 }
 
 .filter-card {
     position: fixed;
     width: 100vw;
-    margin-top: 90vh;
+    margin: 1em;
+    pointer-events: none;
+    opacity: 0.4;
+    transition: 0.2s;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    & .card {
+        pointer-events: all;
+    }
+}
+
+.filter-container {
+    font-size: 9pt;
+}
+
+.map-container {
+    // padding: 1em;
+    // padding-right: 0;
 }

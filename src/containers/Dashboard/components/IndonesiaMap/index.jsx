@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 
 import {
     ComposableMap,
@@ -23,7 +23,7 @@ const IndonesiaMap = () => {
     })
 
     return (
-        <div className="map-container">
+        <Fragment>
             <ComposableMap
                 projection={'mercator'}
                 projectionConfig={{
@@ -31,8 +31,8 @@ const IndonesiaMap = () => {
                 }}
             >
                 <ZoomableGroup
-                    center={[118, -3]}
-                    disablePanning
+                    center={[117.5, -4]}
+                    // disablePanning
                 >
                     <Geographies geography={TopoJson} >
                         {(geographies, projection) =>
@@ -69,7 +69,7 @@ const IndonesiaMap = () => {
                 </ ZoomableGroup>
             </ ComposableMap>
             <ReactTooltip />
-        </div>
+        </Fragment>
     )
 }
 

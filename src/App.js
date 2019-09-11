@@ -16,9 +16,9 @@ import './App.scss';
  * Arguments: link, name, icon, component (in this order)
 **/
 const links = [
-  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-lg fa-globe-asia" />, Dashboard),
-  new Sidebar.ButtonPrototype("analytics", "Analytics", <i className="fas fa-lg fa-chart-area" />, Analytics),
-  new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-lg fa-info-circle" />, About),
+  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-globe-asia" />, Dashboard),
+  new Sidebar.ButtonPrototype("analytics", "Analytics", <i className="fas fa-chart-area" />, Analytics),
+  new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-info-circle" />, About),
 ]
 
 const App = () => {
