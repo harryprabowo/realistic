@@ -82,7 +82,7 @@ const Dashboard = () => {
                                     </Card.Content>
                                 </Card.Container>
                             </Col>
-                            <Col />                            
+                            <Col />
                         </Row>
                     </Col>
                 </Row>
