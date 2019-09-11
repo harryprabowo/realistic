@@ -1,6 +1,11 @@
 import React from 'react'
 import './style.scss'
 
+import {
+    OverlayTrigger,
+    Tooltip,
+} from 'react-bootstrap'
+
 // SidebarButton object prototype
 class ButtonPrototype {
     constructor(link, name, icon, component) {
@@ -26,9 +31,24 @@ const Container = props => {
 const Button = props => {
     return (
         <li>
-            <div className="sidebar-button">{props.children}</div>
+            <OverlayTrigger
+                placement="right"
+                delay={{
+                    show: 600,
+                    hide: 200
+                }}
+                overlay={
+                    <Tooltip>{props.overlay}</Tooltip>
+                }
+            >
+                <div className="sidebar-button">{props.children}</div>
+            </OverlayTrigger>
         </li>
     )
 }
 
-export default { ButtonPrototype, Container, Button }
+export default { 
+    ButtonPrototype, 
+    Container, 
+    Button
+}
