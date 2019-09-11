@@ -7,7 +7,7 @@ import {
     Geography,
     Markers,
     Marker,
-} from "react-simple-maps" 
+} from "react-simple-maps"
 
 import ReactTooltip from "react-tooltip"
 
@@ -31,7 +31,8 @@ const IndonesiaMap = () => {
                 }}
             >
                 <ZoomableGroup
-                    center={[ 118, -3 ]}
+                    center={[118, -3]}
+                    disablePanning
                 >
                     <Geographies geography={TopoJson} >
                         {(geographies, projection) =>
@@ -61,15 +62,13 @@ const IndonesiaMap = () => {
                                             outline: "none",
                                         }
                                     }}
-                                >
-                                    {console.log(geography)}
-                                </Geography>
+                                />
                             )
                         }
                     </Geographies>
                 </ ZoomableGroup>
             </ ComposableMap>
-            <ReactTooltip/>
+            <ReactTooltip />
         </div>
     )
 }
