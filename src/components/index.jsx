@@ -1,5 +1,7 @@
 import Sidebar from './Sidebar'
+import Card from './Card'
 
 export {
-    Sidebar
+    Sidebar,
+    Card,
 }

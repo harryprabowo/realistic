@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, NavLink, Redirect, Switch } from 'react
 import { Sidebar } from './components'
 import {
   Dashboard,
+  Analytics,
   About,
   NotFound
 } from './containers'
@@ -15,8 +16,9 @@ import './App.scss';
  * Arguments: link, name, icon, component (in this order)
 **/
 const links = [
-  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-lg fa-home" />, Dashboard),
-  new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-lg fa-info-circle" />, About),
+  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-globe-asia" />, Dashboard),
+  new Sidebar.ButtonPrototype("analytics", "Analytics", <i className="fas fa-chart-area" />, Analytics),
+  new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-info-circle" />, About),
 ]
 
 const App = () => {
@@ -33,7 +35,6 @@ const App = () => {
       </Sidebar.Container>
 
       <div id="App">
-        <br/>
         <Switch>
           {
             links.map((link, index) => (
