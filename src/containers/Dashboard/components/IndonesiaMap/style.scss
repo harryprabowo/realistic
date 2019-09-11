@@ -1,4 +1,35 @@
+$map-alert-width: 30%;
+$reset-button-width: 5%;
+
 .rsm-svg  {
-    width: 100% !important;
-    height: auto !important;
+    width: 100rem !important;
+    height: 50rem  !important;
+}
+
+.map-alert {
+    width: $map-alert-width;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    margin-left: ($map-alert-width/2) * -1;
+    margin-top: 1em;
+}
+
+.map-reset { 
+    width: inherit;
+    position: fixed;
+    margin-top: 90vh;
+    pointer-events: none;
+    text-align: right;
+
+    & button {
+        background-color: white;
+        outline: none;
+        border-radius: 10px;
+        -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+        -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+        box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+        pointer-events: all;
+        text-align: center;
+    }
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
     Row,
     Col,
@@ -7,11 +6,10 @@ import {
     Button
 } from 'react-bootstrap'
 
+import Map from './components/IndonesiaMap'
 import {
     Card,
 } from '../../components'
-
-import Map from './components/IndonesiaMap'
 
 import './style.scss'
 
@@ -21,9 +19,9 @@ const Dashboard = () => {
             <div className="filter-card">
                 <Row>
                     <Col />
-                    <Col sm={3}>
+                    <Col lg={3}>
                         <Row>
-                            <Col sm={{span: 9}}>
+                            <Col lg={{span: 9}}>
                                 <Card.Container>
                                     <Card.Content>
                                         <div className="filter-container">

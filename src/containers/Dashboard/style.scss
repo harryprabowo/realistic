@@ -1,15 +1,14 @@
-// @import '../../assets/topography-pattern.scss';
+@import '../../assets/topography-pattern.scss';
 
 #Dashboard {
     height: 100vh;
-    background-color:#d8e0e2;
+    width: 100%;
     overflow: hidden;
-    // background-image: $topography-pattern;
 }
 
 .filter-card {
     position: fixed;
-    width: 100vw;
+    width: inherit;
     margin: 1em;
     pointer-events: none;
     opacity: 0.4;
@@ -29,6 +28,6 @@
 }
 
 .map-container {
-    // padding: 1em;
-    // padding-right: 0;
+    width: 100%;
+    background-image: $topography-pattern;
 }
