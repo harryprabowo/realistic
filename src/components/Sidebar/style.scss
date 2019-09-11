@@ -1,10 +1,10 @@
-$sidebar-width: 3.5em;
+$sidebar-width: 3em;
 $active-button-color: rgba(0, 0, 0, 0.300);
 
 #Sidebar {
     position: fixed;
     top: 0;
-    background-color: rgb(41, 75, 110);
+    background-color: rgb(11, 83, 110);
     width: $sidebar-width;
     height: 100vh;
 
@@ -31,7 +31,7 @@ $active-button-color: rgba(0, 0, 0, 0.300);
         }
 
         & i {
-            padding: 20px 0;
+            padding: 15px 0;
             width: 100%;
             transition: 0.2s;
 
