@@ -13,3 +13,6 @@ Make sure you have **Yarn** installed.
 3. To run this project, do `yarn start`; to deploy, first do `yarn build`, and deploy build folder.
 
 More scripts in `package.json` file.
+
+## Deployed Product
+You can see the dashboard at realistic.kappa.id
