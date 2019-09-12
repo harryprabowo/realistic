@@ -14,20 +14,22 @@ import Map from "./components/IndonesiaMap";
 import { Card } from "../../components";
 
 import "./style.scss";
+import DataJson from "../../api/data2.json";
 
 const data = {
   "SMA MA": {
     "2019": {
-      "JAWA TENGAH": {
-        BAHASA: {
-          "BAHASA INDONESIA": 62.59106666666674
+      BAHASA: {
+        "BAHASA INDONESIA": {
+          "JAWA TENGAH": 65,
+          "JAWA BARAT": 30
         }
       }
     },
     "2018": {
-      "JAWA BARAT": {
-        IPS: {
-          "BAHASA INDONESIA": 62.59106666666674
+      IPS: {
+        "BAHASA INDONESIA": {
+          "JAWA BARAT": 65
         }
       }
     }
@@ -36,10 +38,11 @@ const data = {
 
 const Dashboard = () => {
   const [searchFilter, setSearchFilter] = useState({});
-  const [currentData, setCurrentData] = useState(data);
+  const [currentData, setCurrentData] = useState({});
 
-  const { jenjang, tahun, wilayah, jurusan, mataUjian } = searchFilter;
-  const options = getOptions(searchFilter, currentData);
+  const { jenjang, tahun, jurusan, mataUjian } = searchFilter;
+
+  const options = getOptions(searchFilter, data);
 
   return (
     <div id="Dashboard">
@@ -62,6 +65,7 @@ const Dashboard = () => {
                               setSearchFilter({
                                 jenjang: value
                               });
+                              setCurrentData({});
                             }}
                             options={options.jenjang}
                           />
@@ -76,24 +80,12 @@ const Dashboard = () => {
                                 jenjang: searchFilter.jenjang,
                                 tahun: value
                               });
+                              setCurrentData({});
                             }}
                             options={options.tahun}
                           />
                         </Col>
                       </Row>
-                      <h7>Wilayah</h7>
-                      <Select
-                        isDisabled={!options.wilayah.length}
-                        value={{ label: wilayah, value: wilayah }}
-                        onChange={({ value }) => {
-                          setSearchFilter({
-                            jenjang: searchFilter.jenjang,
-                            tahun: searchFilter.tahun,
-                            wilayah: value
-                          });
-                        }}
-                        options={options.wilayah}
-                      />
                       <h7>Jurusan</h7>
                       <Select
                         isDisabled={!options.jurusan.length}
@@ -102,7 +94,6 @@ const Dashboard = () => {
                           setSearchFilter({
                             jenjang: searchFilter.jenjang,
                             tahun: searchFilter.tahun,
-                            wilayah: searchFilter.wilayah,
                             jurusan: value
                           });
                         }}
@@ -116,10 +107,17 @@ const Dashboard = () => {
                           setSearchFilter({
                             jenjang: searchFilter.jenjang,
                             tahun: searchFilter.tahun,
-                            wilayah: searchFilter.wilayah,
                             jurusan: searchFilter.jurusan,
                             mataUjian: value
                           });
+                          const {
+                            [jenjang]: {
+                              [tahun]: {
+                                [jurusan]: { [value]: nextData }
+                              }
+                            }
+                          } = data;
+                          setCurrentData(nextData);
                         }}
                         options={options.mataUjian}
                       />
@@ -133,7 +131,7 @@ const Dashboard = () => {
       </div>
 
       <div className="map-container">
-        <Map />
+        <Map data={currentData} />
       </div>
     </div>
   );
