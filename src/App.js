@@ -25,6 +25,9 @@ const App = () => {
   return (
     <Router>
       <Sidebar.Container>
+        <Sidebar.Logo>
+          <img alt="Logo" src="https://hasilun.puspendik.kemdikbud.go.id/assets/images/logo_kemdikbud.png"/>
+        </Sidebar.Logo>
         {
           links.map((link, index) => (
             <Sidebar.Button key={index + 1} overlay={link.name}>

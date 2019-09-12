@@ -16,6 +16,15 @@ class ButtonPrototype {
     }
 }
 
+// Company logo
+const Logo = props => {
+    return (
+        <div className="sidebar-logo">
+            {props.children}
+        </div>
+    )
+}
+
 // Sidebar container component
 const Container = props => {
     return (
@@ -47,8 +56,9 @@ const Button = props => {
     )
 }
 
-export default { 
+export default {
     ButtonPrototype, 
     Container, 
+    Logo,
     Button
 }
