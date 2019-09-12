@@ -21,7 +21,7 @@ const Dashboard = () => {
                     <Col />
                     <Col lg={3}>
                         <Row>
-                            <Col lg={{span: 9}}>
+                            <Col lg={{span: 11}}>
                                 <Card.Container>
                                     <Card.Content>
                                         <div className="filter-container">
@@ -80,7 +80,6 @@ const Dashboard = () => {
                                     </Card.Content>
                                 </Card.Container>
                             </Col>
-                            <Col />
                         </Row>
                     </Col>
                 </Row>

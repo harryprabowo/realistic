@@ -1,4 +1,4 @@
-import React, {  useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useRef } from 'react'
 import {
     ComposableMap,
     ZoomableGroup,
@@ -22,26 +22,33 @@ import TopoJson from './topo.json'
 import './style.scss'
 import { isNullOrUndefined } from 'util'
 
-const indonesiaCoordinate = [120, -3]
+const INDONESIA_COORDINATE = [118, -3]
+const DEFAULT_ZOOM = 0.5
+
 const provinces = [
-    { name: "Jakarta Raya", coordinates: [108, -7], zoom: 3 },
+    { name: "Jakarta Raya", coordinates: [107, -7], zoom: 3 },
 ]
 
 const IndonesiaMap = () => {
-    const [center, setCenter] = useState(indonesiaCoordinate)
-    const [zoom, setZoom] = useState(1)
+    const [center, setCenter] = useState(INDONESIA_COORDINATE)
+    const [zoom, setZoom] = useState(DEFAULT_ZOOM)
     const [currentProvince, selectProvince] = useState()
     const [showAlert, setShowAlert] = useState(false);
 
-    useEffect(() => {
-        setTimeout(() => {
-            ReactTooltip.rebuild()
-        }, 100)
+    useEffect(() => { // componentDidUpdate
+        
     })
 
-    const handleReset = () => {
-        setCenter(indonesiaCoordinate)
-        setZoom(1)
+    useEffect(() => { // componentDidMount
+
+        return () => ( // componentWillUnmount
+            null
+        )
+    }, [])
+
+    const handleResetMap = () => {
+        setCenter(INDONESIA_COORDINATE)
+        setZoom(DEFAULT_ZOOM)
         selectProvince(undefined)
     }
 
@@ -66,24 +73,37 @@ const IndonesiaMap = () => {
     }
 
     return (
-        <div style={{height: 'inherit', width: 'inherit'}}>
+        <Fragment>
             <div className="map-alert">
                 <Alert show={showAlert} variant="danger" onClose={() => setShowAlert(false)} dismissible>
                     Corresponding province data is unavailable.
                 </Alert>
             </div>
 
-            <div className="map-reset">
+            <div className="map-option">
                 <Row>
                     <Col/>
-                    <Col lg={3}>
+                    <Col lg={1}>
                         <Row>
-                            <Col lg={{ span: 10 }}>
-                                <Button variant="light" onClick={handleReset}>
+                            <Col lg={{ span: 9 }}>
+                                <Button variant="light">
+                                    <i className="fas fa-search-plus" />
+                                </Button>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg={{ span: 9 }}>
+                                <Button variant="light" >
+                                    <i className="fas fa-search-minus" />
+                                </Button>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg={{ span: 9 }}>
+                                <Button variant="light" onClick={handleResetMap}>
                                     <i className="fas fa-undo-alt" />
                                 </Button>
                             </Col>
-                            <Col/>
                         </Row>
                     </Col>
                 </Row>
@@ -100,13 +120,16 @@ const IndonesiaMap = () => {
                     <ComposableMap
                         projection={'mercator'}
                         projectionConfig={{
-                            scale: 1000,
+                            scale: 2000,
                         }}
                     >
                         <ZoomableGroup
                             center={[x,y]}
                             zoom={zoom}
-                            disablePanning
+                            onMoveStart={e => [x, y] = e}
+                            onMoveEnd={e => {
+                                setCenter(e)
+                            }}
                         >
                             <Geographies geography={TopoJson} >
                                 {(geographies, projection) =>
@@ -142,41 +165,47 @@ const IndonesiaMap = () => {
                                     )
                                 }
                             </Geographies>
+
                             <Graticule />
-                            {/* <Markers>
-                                {markers.map((marker, i) => (
-                                    <Marker
-                                        key={i}
-                                        marker={marker}
-                                        style={{
-                                            default: { fill: "#FF5722" },
-                                            hover: { fill: "#FFFFFF" },
-                                            pressed: { fill: "#FF5722" },
-                                        }}
-                                    >
-                                        <circle
-                                            cx={0}
-                                            cy={0}
-                                            r={10}
-                                            style={{
-                                                stroke: "#FF5722",
-                                                strokeWidth: 3,
-                                                opacity: 0.9,
-                                            }}
-                                        />
-                                        <text
-                                            textAnchor="middle"
-                                            y={marker.markerOffset}
-                                            style={{
-                                                fontFamily: "Roboto, sans-serif",
-                                                fill: "#607D8B",
-                                            }}
-                                        >
-                                            {marker.name}
-                                        </text>
-                                    </Marker>
-                                ))}
-                            </Markers> */}
+
+                            {/* {
+                                !isNullOrUndefined(currentProvince) ? (
+                                    <Markers>
+                                        {markers.map((marker, i) => (
+                                            <Marker
+                                                key={i}
+                                                marker={marker}
+                                                style={{
+                                                    default: { fill: "#FF5722" },
+                                                    hover: { fill: "#FFFFFF" },
+                                                    pressed: { fill: "#FF5722" },
+                                                }}
+                                            >
+                                                <circle
+                                                    cx={0}
+                                                    cy={0}
+                                                    r={10}
+                                                    style={{
+                                                        stroke: "#FF5722",
+                                                        strokeWidth: 3,
+                                                        opacity: 0.9,
+                                                    }}
+                                                />
+                                                <text
+                                                    textAnchor="middle"
+                                                    y={marker.markerOffset}
+                                                    style={{
+                                                        fontFamily: "Roboto, sans-serif",
+                                                        fill: "#607D8B",
+                                                    }}
+                                                >
+                                                    {marker.name}
+                                                </text>
+                                            </Marker>
+                                        ))}
+                                    </Markers>       
+                                ) : null
+                            } */}
                         </ ZoomableGroup>
                     </ ComposableMap>
                 )}
@@ -191,7 +220,7 @@ const IndonesiaMap = () => {
                     </div>
                 }
             />
-        </div>
+        </Fragment>
     )
 }
 

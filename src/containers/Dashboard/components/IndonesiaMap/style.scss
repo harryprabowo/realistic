@@ -2,8 +2,8 @@ $map-alert-width: 30%;
 $reset-button-width: 5%;
 
 .rsm-svg  {
-    width: 100rem !important;
-    height: 50rem  !important;
+    width: 100vw !important;
+    height: 100vh  !important;
 }
 
 .map-alert {
@@ -15,17 +15,18 @@ $reset-button-width: 5%;
     margin-top: 1em;
 }
 
-.map-reset { 
+.map-option { 
     width: inherit;
     position: fixed;
-    margin-top: 90vh;
+    bottom: 5em;
     pointer-events: none;
     text-align: right;
 
     & button {
         background-color: white;
-        outline: none;
+        margin: 10px 0;
         border-radius: 10px;
+        border: none;
         -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
         -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
         box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);

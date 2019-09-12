@@ -1,9 +1,8 @@
 @import '../../assets/topography-pattern.scss';
 
 #Dashboard {
+    width: 100vw;
     height: 100vh;
-    width: 100%;
-    overflow: hidden;
 }
 
 .filter-card {
