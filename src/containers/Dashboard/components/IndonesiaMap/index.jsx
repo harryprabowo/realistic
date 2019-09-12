@@ -8,6 +8,7 @@ import {
     Markers,
     Marker,
 } from "react-simple-maps"
+import { scaleLinear } from "d3-scale"
 import { Motion, spring } from "react-motion"
 
 import ReactTooltip from "react-tooltip"
@@ -26,6 +27,10 @@ const INDONESIA_COORDINATE = [118, -3]
 const DEFAULT_ZOOM = 0.5
 const MARKER_OFFSET = -30;
 
+const popScale = scaleLinear()
+    .domain([0, 100000000, 1400000000])
+    .range(["#CFD8DC", "#607D8B", "#37474F"])
+
 const markers = [
     { markerOffset: MARKER_OFFSET, name: "Jakarta Raya", coordinates: [106.8456, -6.2088], zoom: 3 },
 ]
@@ -37,7 +42,7 @@ const IndonesiaMap = () => {
     const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => { // componentDidUpdate
-        
+
     })
 
     useEffect(() => { // componentDidMount
@@ -82,7 +87,7 @@ const IndonesiaMap = () => {
             </div>
             <div className="map-option">
                 <Row>
-                    <Col/>
+                    <Col />
                     <Col lg={1}>
                         <Row>
                             <Col lg={{ span: 9 }}>
@@ -124,7 +129,7 @@ const IndonesiaMap = () => {
                         }}
                     >
                         <ZoomableGroup
-                            center={[x,y]}
+                            center={[x, y]}
                             zoom={zoom}
                             onMoveStart={e => [x, y] = e}
                             onMoveEnd={e => {
@@ -143,7 +148,7 @@ const IndonesiaMap = () => {
                                             onClick={() => handleSelectProvince(geography.properties.NAME_1)}
                                             style={{
                                                 default: {
-                                                    fill: "#ECEFF1",
+                                                    fill: popScale(500000000),
                                                     stroke: "#607D8B",
                                                     strokeWidth: 0.75,
                                                     outline: "none",
@@ -211,7 +216,7 @@ const IndonesiaMap = () => {
                                                 {marker.name}
                                             </text>
                                         </Marker>
-                                    </Markers>       
+                                    </Markers>
                                 ) : null
                             }
                         </ ZoomableGroup>
@@ -219,7 +224,7 @@ const IndonesiaMap = () => {
                 )}
             </Motion>
 
-            <ReactTooltip 
+            <ReactTooltip
                 id="geography-info"
                 type="info"
                 getContent={region =>
