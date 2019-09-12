@@ -30,3 +30,10 @@
     width: 100%;
     background-image: $topography-pattern;
 }
+
+.form-dropdown {
+    button {
+        width: 100%;
+        border: 1px solid lightgray;
+    }
+}
