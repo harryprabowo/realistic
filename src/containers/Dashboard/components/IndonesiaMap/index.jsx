@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import {
     ComposableMap,
     ZoomableGroup,
@@ -24,15 +24,16 @@ import { isNullOrUndefined } from 'util'
 
 const INDONESIA_COORDINATE = [118, -3]
 const DEFAULT_ZOOM = 0.5
+const MARKER_OFFSET = -25;
 
-const provinces = [
-    { name: "Jakarta Raya", coordinates: [107, -7], zoom: 3 },
+const markers = [
+    { markerOffset: MARKER_OFFSET, name: "Jakarta Raya", coordinates: [106.8456, -6.2088], zoom: 3 },
 ]
 
 const IndonesiaMap = () => {
     const [center, setCenter] = useState(INDONESIA_COORDINATE)
     const [zoom, setZoom] = useState(DEFAULT_ZOOM)
-    const [currentProvince, selectProvince] = useState()
+    const [marker, selectMarker] = useState()
     const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => { // componentDidUpdate
@@ -49,16 +50,16 @@ const IndonesiaMap = () => {
     const handleResetMap = () => {
         setCenter(INDONESIA_COORDINATE)
         setZoom(DEFAULT_ZOOM)
-        selectProvince(undefined)
+        selectMarker(undefined)
     }
 
     const handleSelectProvince = selectedProvince => {
-        const newProvince = provinces.find(province => province.name === selectedProvince)
+        const newMarker = markers.find(province => province.name === selectedProvince)
 
-        if (!isNullOrUndefined(newProvince)) {
-            setCenter(newProvince.coordinates)
-            setZoom(newProvince.zoom)
-            selectProvince(newProvince.name)
+        if (!isNullOrUndefined(newMarker)) {
+            setCenter(newMarker.coordinates)
+            setZoom(newMarker.zoom)
+            selectMarker(newMarker)
         } else {
             handleShowAlert()
         }
@@ -86,14 +87,14 @@ const IndonesiaMap = () => {
                     <Col lg={1}>
                         <Row>
                             <Col lg={{ span: 9 }}>
-                                <Button variant="light">
+                                <Button variant="light" onClick={() => setZoom(zoom + 0.5)}>
                                     <i className="fas fa-search-plus" />
                                 </Button>
                             </Col>
                         </Row>
                         <Row>
                             <Col lg={{ span: 9 }}>
-                                <Button variant="light" >
+                                <Button variant="light" onClick={() => setZoom(zoom - 0.5)}>
                                     <i className="fas fa-search-minus" />
                                 </Button>
                             </Col>
@@ -143,7 +144,7 @@ const IndonesiaMap = () => {
                                             onClick={() => handleSelectProvince(geography.properties.NAME_1)}
                                             style={{
                                                 default: {
-                                                    fill: geography.properties.NAME_1 === currentProvince ? "#FF5722" : "#ECEFF1",
+                                                    fill: "#ECEFF1",
                                                     stroke: "#607D8B",
                                                     strokeWidth: 0.75,
                                                     outline: "none",
@@ -168,44 +169,41 @@ const IndonesiaMap = () => {
 
                             <Graticule />
 
-                            {/* {
-                                !isNullOrUndefined(currentProvince) ? (
+                            {
+                                !isNullOrUndefined(marker) ? (
                                     <Markers>
-                                        {markers.map((marker, i) => (
-                                            <Marker
-                                                key={i}
-                                                marker={marker}
+                                        <Marker
+                                            marker={marker}
+                                            style={{
+                                                default: { fill: "#FF5722" },
+                                                hover: { fill: "#FFFFFF" },
+                                                pressed: { fill: "#FF5722" },
+                                            }}
+                                        >
+                                            <circle
+                                                cx={0}
+                                                cy={0}
+                                                r={10}
                                                 style={{
-                                                    default: { fill: "#FF5722" },
-                                                    hover: { fill: "#FFFFFF" },
-                                                    pressed: { fill: "#FF5722" },
+                                                    stroke: "#FF5722",
+                                                    strokeWidth: 3,
+                                                    opacity: 0.9,
+                                                }}
+                                            />
+                                            <text
+                                                textAnchor="middle"
+                                                y={marker.markerOffset}
+                                                style={{
+                                                    fontFamily: "Roboto, sans-serif",
+                                                    fill: "#607D8B",
                                                 }}
                                             >
-                                                <circle
-                                                    cx={0}
-                                                    cy={0}
-                                                    r={10}
-                                                    style={{
-                                                        stroke: "#FF5722",
-                                                        strokeWidth: 3,
-                                                        opacity: 0.9,
-                                                    }}
-                                                />
-                                                <text
-                                                    textAnchor="middle"
-                                                    y={marker.markerOffset}
-                                                    style={{
-                                                        fontFamily: "Roboto, sans-serif",
-                                                        fill: "#607D8B",
-                                                    }}
-                                                >
-                                                    {marker.name}
-                                                </text>
-                                            </Marker>
-                                        ))}
+                                                {marker.name}
+                                            </text>
+                                        </Marker>
                                     </Markers>       
                                 ) : null
-                            } */}
+                            }
                         </ ZoomableGroup>
                     </ ComposableMap>
                 )}
