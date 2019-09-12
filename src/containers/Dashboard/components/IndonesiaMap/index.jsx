@@ -24,7 +24,7 @@ import { isNullOrUndefined } from 'util'
 
 const INDONESIA_COORDINATE = [118, -3]
 const DEFAULT_ZOOM = 0.5
-const MARKER_OFFSET = -25;
+const MARKER_OFFSET = -30;
 
 const markers = [
     { markerOffset: MARKER_OFFSET, name: "Jakarta Raya", coordinates: [106.8456, -6.2088], zoom: 3 },
@@ -174,27 +174,38 @@ const IndonesiaMap = () => {
                                         <Marker
                                             marker={marker}
                                             style={{
-                                                default: { fill: "#FF5722" },
-                                                hover: { fill: "#FFFFFF" },
-                                                pressed: { fill: "#FF5722" },
+                                                default: { stroke: "#455A64" },
+                                                hover: { stroke: "#FF5722" },
+                                                pressed: { stroke: "#FF5722" },
                                             }}
                                         >
-                                            <circle
-                                                cx={0}
-                                                cy={0}
-                                                r={10}
-                                                style={{
-                                                    stroke: "#FF5722",
-                                                    strokeWidth: 3,
-                                                    opacity: 0.9,
-                                                }}
-                                            />
+                                            <g transform="translate(-12, -24)">
+                                                <path
+                                                    fill="none"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="square"
+                                                    strokeMiterlimit="10"
+                                                    strokeLinejoin="miter"
+                                                    d="M20,9c0,4.9-8,13-8,13S4,13.9,4,9c0-5.1,4.1-8,8-8S20,3.9,20,9z"
+                                                />
+                                                <circle
+                                                    fill="none"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="square"
+                                                    strokeMiterlimit="10"
+                                                    strokeLinejoin="miter"
+                                                    cx="12"
+                                                    cy="9"
+                                                    r="3"
+                                                />
+                                            </g>
                                             <text
                                                 textAnchor="middle"
                                                 y={marker.markerOffset}
                                                 style={{
                                                     fontFamily: "Roboto, sans-serif",
                                                     fill: "#607D8B",
+                                                    stroke: "none",
                                                 }}
                                             >
                                                 {marker.name}
