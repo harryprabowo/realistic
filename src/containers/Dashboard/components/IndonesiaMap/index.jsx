@@ -80,21 +80,20 @@ const IndonesiaMap = () => {
                     Corresponding province data is unavailable.
                 </Alert>
             </div>
-
             <div className="map-option">
                 <Row>
                     <Col/>
                     <Col lg={1}>
                         <Row>
                             <Col lg={{ span: 9 }}>
-                                <Button variant="light" onClick={() => setZoom(zoom + 0.5)}>
+                                <Button variant="light" onClick={() => setZoom(zoom + 0.5)} disabled={zoom > 10}>
                                     <i className="fas fa-search-plus" />
                                 </Button>
                             </Col>
                         </Row>
                         <Row>
                             <Col lg={{ span: 9 }}>
-                                <Button variant="light" onClick={() => setZoom(zoom - 0.5)}>
+                                <Button variant="light" onClick={() => setZoom(zoom - 0.5)} disabled={zoom <= 0.5}>
                                     <i className="fas fa-search-minus" />
                                 </Button>
                             </Col>
