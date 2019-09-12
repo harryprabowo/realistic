@@ -226,7 +226,6 @@ const IndonesiaMap = () => {
 
             <ReactTooltip
                 id="geography-info"
-                type="info"
                 getContent={region =>
                     <div>
                         {region}
