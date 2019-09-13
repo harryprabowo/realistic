@@ -1,9 +1,9 @@
 import Dashboard from './Dashboard'
-import Analytics from './Analytics'
+import Analysis from './Analysis'
 import About from './About'
 
 export {
     Dashboard,
-    Analytics,
+    Analysis,
     About,
 }

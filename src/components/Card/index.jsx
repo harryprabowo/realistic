@@ -4,15 +4,13 @@ import './style.scss'
 
 const Container = props => {
     return (
-        <div className="card">
-            {props.children}
-        </div>
+        <div className="card">{props.children}</div>
     )
 }
 
 const Title = props => {
     return (
-        <h5>{props.children}</h5>
+        <h5 className="card-title">{props.children}</h5>
     )
 }
 

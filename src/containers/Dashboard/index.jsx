@@ -31,6 +31,10 @@ const Dashboard = () => {
                         <Row>
                             <Col lg={{ span: 11 }}>
                                 <Card.Container>
+                                    <Card.Title>
+                                        Indeks UN Indonesia
+                                    </Card.Title>
+                                    <hr/>
                                     <Card.Content>
                                         <div className="filter-container">
                                             <Row>

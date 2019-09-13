@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Sidebar } from './components'
 import {
   Dashboard,
-  Analytics,
+  Analysis,
   About,
 } from './containers'
 
@@ -26,7 +26,7 @@ import './App.scss';
 **/
 const links = [
   new Sidebar.ButtonPrototype("dashboard", "Dashboard", <FontAwesomeIcon icon={faGlobeAsia} />, <Dashboard />),
-  new Sidebar.ButtonPrototype("analytics", "Analytics", <FontAwesomeIcon icon={faChartArea} />, <Analytics />),
+  new Sidebar.ButtonPrototype("analysis", "Analysis", <FontAwesomeIcon icon={faChartArea} />, <Analysis />),
   new Sidebar.ButtonPrototype("about", "About", <FontAwesomeIcon icon={faInfoCircle} />, <About />),
 ]
 
