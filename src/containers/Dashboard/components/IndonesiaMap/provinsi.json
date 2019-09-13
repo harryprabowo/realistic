@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Aceh",
+    "coordinates": [4.695135, 96.7493993]
+  },
+  {
+    "name": "Sumatera Utara",
+    "coordinates": [2.1153547, 99.5450974]
+  },
+  {
+    "name": "Sumatera Barat",
+    "coordinates": [-0.7399397, 100.8000051]
+  },
+  {
+    "name": "Riau",
+    "coordinates": [0.2933469, 101.7068294]
+  },
+  {
+    "name": "Jambi",
+    "coordinates": [-1.4851831, 102.4380581]
+  },
+  {
+    "name": "Sumatera Selatan",
+    "coordinates": [-3.3194374, 103.914399]
+  },
+  {
+    "name": "Bengkulu",
+    "coordinates": [-3.5778471, 102.3463875]
+  },
+  {
+    "name": "Lampung",
+    "coordinates": [-4.5585849, 105.4068079]
+  },
+  {
+    "name": "Bangka Belitung",
+    "coordinates": [-2.7410513, 106.4405872]
+  },
+  {
+    "name": "Kepulauan Riau",
+    "coordinates": [3.9456514, 108.1428669]
+  },
+  {
+    "name": "DKI Jakarta",
+    "coordinates": [-6.211544, 106.845172]
+  },
+  {
+    "name": "Jawa Barat",
+    "coordinates": [-7.090911, 107.668887]
+  },
+  {
+    "name": "Jawa Tengah",
+    "coordinates": [-7.150975, 110.1402594]
+  },
+  {
+    "name": "DI Yogyakarta",
+    "coordinates": [-7.8753849, 110.4262088]
+  },
+  {
+    "name": "Jawa Timur",
+    "coordinates": [-7.5360639, 112.2384017]
+  },
+  {
+    "name": "Banten",
+    "coordinates": [-6.4058172, 106.0640179]
+  },
+  {
+    "name": "Bali",
+    "coordinates": [-8.4095178, 115.188916]
+  },
+  {
+    "name": "Nusa Tenggara Barat",
+    "coordinates": [-8.6529334, 117.3616476]
+  },
+  {
+    "name": "Nusa Tenggara Timur",
+    "coordinates": [-8.6573819, 121.0793705]
+  },
+  {
+    "name": "Kalimantan Barat",
+    "coordinates": [-0.2787808, 111.4752851]
+  },
+  {
+    "name": "Kalimantan Tengah",
+    "coordinates": [-1.6814878, 113.3823545]
+  },
+  {
+    "name": "Kalimantan Selatan",
+    "coordinates": [-3.0926415, 115.2837585]
+  },
+  {
+    "name": "Kalimantan Timur",
+    "coordinates": [1.6406296, 116.419389]
+  },
+  {
+    "name": "Sulawesi Utara",
+    "coordinates": [0.6246932, 123.9750018]
+  },
+  {
+    "name": "Sulawesi Tengah",
+    "coordinates": [-1.4300254, 121.4456179]
+  },
+  {
+    "name": "Sulawesi Selatan",
+    "coordinates": [-3.6687994, 119.9740534]
+  },
+  {
+    "name": "Sulawesi Tenggara",
+    "coordinates": [-4.14491, 122.174605]
+  },
+  {
+    "name": "Gorontalo",
+    "coordinates": [0.6999372, 122.4467238]
+  },
+  {
+    "name": "Sulawesi Barat",
+    "coordinates": [-2.8441371, 119.2320784]
+  },
+  {
+    "name": "Maluku",
+    "coordinates": [-3.2384616, 130.1452734]
+  },
+  {
+    "name": "Maluku Utara",
+    "coordinates": [1.5709993, 127.8087693]
+  },
+  {
+    "name": "Papua Barat",
+    "coordinates": [-1.3361154, 133.1747162]
+  },
+  {
+    "name": "Papua",
+    "coordinates": [-4.269928, 138.0803529]
+  }
+]

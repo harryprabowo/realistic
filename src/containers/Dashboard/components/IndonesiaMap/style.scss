@@ -2,8 +2,12 @@ $map-alert-width: 30%;
 $reset-button-width: 5%;
 
 .rsm-svg  {
-    width: 100vw !important;
-    height: 100vh  !important;
+    width: 100vw;
+    height: 100vh;
+}
+
+.rsm-geography {
+  transition: 0.2s;
 }
 
 .map-alert {
@@ -32,5 +36,14 @@ $reset-button-width: 5%;
         box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
         pointer-events: all;
         text-align: center;
+    }
+}
+
+#geography-info {
+    pointer-events: auto !important;
+    
+    &:hover {
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }
