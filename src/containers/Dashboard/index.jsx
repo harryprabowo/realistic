@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Select from "react-select";
 import {
     Row,
@@ -6,8 +7,8 @@ import {
 } from "react-bootstrap";
 
 import { getOptions } from "../../api/utils";
-import Map from "./components/IndonesiaMap";
 import { Card } from "../../components";
+import Map from "./components/IndonesiaMap";
 
 import data from '../../api/data2.json'
 
@@ -30,6 +31,10 @@ const Dashboard = () => {
                         <Row>
                             <Col lg={{ span: 11 }}>
                                 <Card.Container>
+                                    <Card.Title>
+                                        Indeks UN Indonesia
+                                    </Card.Title>
+                                    <hr/>
                                     <Card.Content>
                                         <div className="filter-container">
                                             <Row>

@@ -12,7 +12,15 @@ import { scaleLinear } from "d3-scale";
 import { Motion, spring } from "react-motion";
 
 import ReactTooltip from "react-tooltip";
+
 import { Alert, Button, Row, Col } from "react-bootstrap";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faSearchPlus,
+    faSearchMinus,
+    faUndoAlt,
+} from '@fortawesome/free-solid-svg-icons'
 
 import TopoJson from "./topo.json";
 import ProvinsiJson from "./provinsi.json"
@@ -103,7 +111,7 @@ const IndonesiaMap = ({ data, ranking, average }) => {
                                     onClick={() => setZoom(zoom * 2)}
                                     disabled={zoom > 10}
                                 >
-                                    <i className="fas fa-search-plus" />
+                                    <FontAwesomeIcon icon={faSearchPlus} />
                                 </Button>
                             </Col>
                         </Row>
@@ -114,14 +122,14 @@ const IndonesiaMap = ({ data, ranking, average }) => {
                                     onClick={() => setZoom(zoom / 2)}
                                     disabled={zoom <= 0.5}
                                 >
-                                    <i className="fas fa-search-minus" />
+                                    <FontAwesomeIcon icon={faSearchMinus} />
                                 </Button>
                             </Col>
                         </Row>
                         <Row>
                             <Col lg={{ span: 9 }}>
                                 <Button variant="light" onClick={handleResetMap}>
-                                    <i className="fas fa-undo-alt" />
+                                    <FontAwesomeIcon icon={faUndoAlt} />
                                 </Button>
                             </Col>
                         </Row>
@@ -136,9 +144,9 @@ const IndonesiaMap = ({ data, ranking, average }) => {
                     y: INDONESIA_COORDINATE[1],
                 }}
                 style={{
-                    zoom: spring(zoom, { stiffness: 50, damping: 15 }),
-                    x: spring(center[0], { stiffness: 50, damping: 15 }),
-                    y: spring(center[1], { stiffness: 50, damping: 15 })
+                    zoom: spring(zoom, { stiffness: 100, damping: 30 }),
+                    x: spring(center[0], { stiffness: 100, damping: 30 }),
+                    y: spring(center[1], { stiffness: 100, damping: 30 })
                 }}
             >
                 {({ zoom, x, y }) => (

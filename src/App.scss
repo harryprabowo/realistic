@@ -1,6 +1,23 @@
 $app-background-color: rgb(253, 253, 253);
 
-#App {
+.App {
   height: 100vh;
   background-color: $app-background-color;
+}
+
+.sidebar-button {
+  color: #fff;
+  width: 100%;
+  border-radius: 0;
+
+  button {
+    padding: 10px 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  & :focus {
+    outline: 0;
+    box-shadow: none!important;
+  }
 }
