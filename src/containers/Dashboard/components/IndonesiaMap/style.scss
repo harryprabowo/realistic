@@ -2,8 +2,12 @@ $map-alert-width: 30%;
 $reset-button-width: 5%;
 
 .rsm-svg  {
-    width: 100vw !important;
-    height: 100vh  !important;
+    width: 100vw;
+    height: 100vh;
+}
+
+.rsm-geography {
+  transition: 0.2s;
 }
 
 .map-alert {
