@@ -38,12 +38,3 @@ $reset-button-width: 5%;
         text-align: center;
     }
 }
-
-#geography-info {
-    pointer-events: auto !important;
-    
-    &:hover {
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-}

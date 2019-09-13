@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import {
     Row,
@@ -20,19 +20,6 @@ const Dashboard = () => {
     const { jenjang, tahun, jurusan, mataUjian } = searchFilter;
 
     const options = getOptions(searchFilter, data);
-
-    useEffect(() => {
-        // componentDidMount
-        window.addEventListener('scroll', handleScroll, { passive: true })
-
-        return () =>
-            // componentWillUnmount
-            window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const handleScroll = event => {
-        console.log(event)
-    }
 
     return (
         <div id="Dashboard">
@@ -127,13 +114,17 @@ const Dashboard = () => {
             </div>
 
             <div className="map-container">
-                {console.log(currentData)}
                 <Map 
-                    data={currentData} 
+                    data={currentData}
+                    average={
+                        Object.entries(data).length === 0 && data.constructor === Object
+                            ? null
+                            : (Object.values(currentData).reduce((total, value) => total + value, 0)) / Object.keys(currentData).length
+                    }
                     ranking={
                         Object.entries(data).length === 0 && data.constructor === Object
-                        ? null
-                        : Object.keys(currentData).sort((a, b) => currentData[b] - currentData[a])
+                            ? null
+                            : Object.keys(currentData).sort((a, b) => currentData[b] - currentData[a])
                     }
                 />
             </div>

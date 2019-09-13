@@ -29,11 +29,9 @@ const popScale = scaleLinear()
     .domain([0, 50, 100])
     .range(["red", "yellow", "green"]);
 
-const IndonesiaMap = ({ data, ranking }) => {
+const IndonesiaMap = ({ data, ranking, average }) => {
     const [center, setCenter] = useState(INDONESIA_COORDINATE);
     const [zoom, setZoom] = useState(DEFAULT_ZOOM);
-    const [hoveredGeography, setHoveredGeography] = useState();
-    const [selectedGeography, setSelectedGeography] = useState();
     const [marker, selectMarker] = useState();
     const [showAlert, setShowAlert] = useState(false);
     
@@ -54,16 +52,7 @@ const IndonesiaMap = ({ data, ranking }) => {
         setCenter(INDONESIA_COORDINATE);
         setZoom(DEFAULT_ZOOM);
         selectMarker(undefined);
-        setSelectedGeography(undefined);
     };
-
-    const handleGeographyMouseMove = e => {
-        setHoveredGeography(e.properties.NAME_1)
-    }
-
-    const handleGeographyMouseLeave = e => {
-        setHoveredGeography(undefined)
-    }
 
     const handleSelectGeography = e => {
         const newMarker = ProvinsiJson.find(
@@ -77,7 +66,6 @@ const IndonesiaMap = ({ data, ranking }) => {
             setCenter(newMarker.coordinates);
             setZoom(newMarker.zoom);
             selectMarker(newMarker);
-            setSelectedGeography(newMarker.name);
         } else {
             handleShowAlert();
         }
@@ -177,8 +165,6 @@ const IndonesiaMap = ({ data, ranking }) => {
                                             geography={geography}
                                             projection={projection}
                                             onClick={handleSelectGeography}
-                                            onMouseMove={handleGeographyMouseMove}
-                                            onMouseLeave={handleGeographyMouseLeave}
                                             style={{
                                                 default: {
                                                     fill: Object.entries(data).length === 0 && data.constructor === Object
@@ -275,6 +261,13 @@ const IndonesiaMap = ({ data, ranking }) => {
                                 isNullOrUndefined(data[region.toUpperCase()]) ? null : (
                                     <Fragment>
                                         <br />
+                                        <span>
+                                            {
+                                                ((data[region.toUpperCase()] - average) / average) < 0
+                                                    ? (((data[region.toUpperCase()] - average) / average * 100).toFixed(2) * -1).toString() + '% di atas'
+                                                    : (((data[region.toUpperCase()] - average) / average * 100).toFixed(2)) + '% di bawah'
+                                            } rata-rata
+                                        </span> <br/>
                                         <span>Peringkat: {ranking.indexOf(region.toUpperCase()) + 1}/{ranking.length}</span> <br />
                                         <span>Skor: {data[region.toUpperCase()].toFixed(2)}/100</span>
                                     </Fragment>
