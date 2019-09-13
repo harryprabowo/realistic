@@ -1,13 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, NavLink, Redirect, Switch } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import { Sidebar } from './components'
 import {
   Dashboard,
   Analytics,
   About,
-  NotFound
 } from './containers'
+
+import {
+  Button,
+} from 'react-bootstrap'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGlobeAsia,
+  faChartArea,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons'
 
 import './App.scss';
 
@@ -16,43 +25,42 @@ import './App.scss';
  * Arguments: link, name, icon, component (in this order)
 **/
 const links = [
-  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <i className="fas fa-globe-asia" />, Dashboard),
-  new Sidebar.ButtonPrototype("analytics", "Analytics", <i className="fas fa-chart-area" />, Analytics),
-  new Sidebar.ButtonPrototype("about", "About", <i className="fas fa-info-circle" />, About),
+  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <FontAwesomeIcon icon={faGlobeAsia} />, <Dashboard />),
+  new Sidebar.ButtonPrototype("analytics", "Analytics", <FontAwesomeIcon icon={faChartArea} />, <Analytics />),
+  new Sidebar.ButtonPrototype("about", "About", <FontAwesomeIcon icon={faInfoCircle} />, <About />),
 ]
 
 const App = () => {
+  const [currentPage, setPage] = useState(links[0]);
+
+  const handleChange = link => setPage(link)
+
   return (
-    <Router>
+    <div className="root">
       <Sidebar.Container>
         <Sidebar.Logo>
-          <img alt="Logo" src="https://hasilun.puspendik.kemdikbud.go.id/assets/images/logo_kemdikbud.png"/>
+          <img alt="Logo" src="https://hasilun.puspendik.kemdikbud.go.id/assets/images/logo_kemdikbud.png" />
         </Sidebar.Logo>
         {
           links.map((link, index) => (
             <Sidebar.Button key={index + 1} overlay={link.name}>
-              <NavLink to={`/` + link.link} activeClassName="active">{link.icon}</NavLink>
+              <Button
+                className="sidebar-button"
+                variant="info"
+                onClick={() => handleChange(link)}
+                active={link.name === currentPage.name}
+              >
+                {link.icon}
+              </Button>
             </Sidebar.Button>
           ))
         }
       </Sidebar.Container>
 
-      <div id="App">
-        <Switch>
-          {
-            links.map((link, index) => (
-              <Route key={index + 1} path={'/' + link.link} exact component={link.component} />
-            ))
-          }
-
-          {/* Edge cases handling */}
-          <Route exact path='/' render={() => <Redirect to='/dashboard' />} />
-
-          <Route path='/404' exact component={NotFound} />
-          <Route render={() => <Redirect to='/404' />} />
-        </Switch>
+      <div id={currentPage.name} className="App">
+        {currentPage.component}
       </div>
-    </Router>
+    </div>
   )
 }
 

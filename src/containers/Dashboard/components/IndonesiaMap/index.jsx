@@ -136,9 +136,9 @@ const IndonesiaMap = ({ data, ranking, average }) => {
                     y: INDONESIA_COORDINATE[1],
                 }}
                 style={{
-                    zoom: spring(zoom, { stiffness: 50, damping: 15 }),
-                    x: spring(center[0], { stiffness: 50, damping: 15 }),
-                    y: spring(center[1], { stiffness: 50, damping: 15 })
+                    zoom: spring(zoom, { stiffness: 100, damping: 30 }),
+                    x: spring(center[0], { stiffness: 100, damping: 30 }),
+                    y: spring(center[1], { stiffness: 100, damping: 30 })
                 }}
             >
                 {({ zoom, x, y }) => (

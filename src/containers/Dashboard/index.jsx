@@ -6,8 +6,8 @@ import {
 } from "react-bootstrap";
 
 import { getOptions } from "../../api/utils";
-import Map from "./components/IndonesiaMap";
 import { Card } from "../../components";
+import Map from "./components/IndonesiaMap";
 
 import data from '../../api/data2.json'
 
