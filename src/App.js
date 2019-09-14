@@ -26,17 +26,16 @@ import './App.scss';
  * List of sidebar buttons
  * Arguments: link, name, icon, component (in this order)
 **/
-const links = [
-  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <FontAwesomeIcon icon={faGlobeAsia} />, <Dashboard />),
-  new Sidebar.ButtonPrototype("analysis", "Analysis", <FontAwesomeIcon icon={faChartArea} />, <Analysis />),
-  new Sidebar.ButtonPrototype("about", "About", <FontAwesomeIcon icon={faInfoCircle} />, <About />),
-]
 
 const App = () => {
+  const links = [
+    new Sidebar.ButtonPrototype("dashboard", "Dashboard", <FontAwesomeIcon icon={faGlobeAsia} />, <Dashboard />),
+    new Sidebar.ButtonPrototype("analysis", "Analysis", <FontAwesomeIcon icon={faChartArea} />, <Analysis />),
+    new Sidebar.ButtonPrototype("about", "About", <FontAwesomeIcon icon={faInfoCircle} />, <About />),
+  ]
+  
   const [currentPage, setPage] = useState(links[0]);
-
-  const handleChange = link => setPage(link)
-
+  
   return (
     <div className="root">
       <Sidebar.Container>
@@ -49,7 +48,7 @@ const App = () => {
               <Button
                 className="sidebar-button"
                 variant="info"
-                onClick={() => handleChange(link)}
+                onClick={() => setPage(link)}
                 active={link.name === currentPage.name}
               >
                 {link.icon}
