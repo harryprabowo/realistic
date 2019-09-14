@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.5cfadf91.chunk.css",
-    "main.js": "/static/js/main.077826d5.chunk.js",
-    "main.js.map": "/static/js/main.077826d5.chunk.js.map",
+    "main.css": "/static/css/main.439152d5.chunk.css",
+    "main.js": "/static/js/main.ed99adc7.chunk.js",
+    "main.js.map": "/static/js/main.ed99adc7.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.8005ff02.js",
     "runtime~main.js.map": "/static/js/runtime~main.8005ff02.js.map",
-    "static/js/2.db5447b1.chunk.js": "/static/js/2.db5447b1.chunk.js",
-    "static/js/2.db5447b1.chunk.js.map": "/static/js/2.db5447b1.chunk.js.map",
+    "static/js/2.52218b47.chunk.js": "/static/js/2.52218b47.chunk.js",
+    "static/js/2.52218b47.chunk.js.map": "/static/js/2.52218b47.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f233862195a191d08fd573c210050c32.js": "/precache-manifest.f233862195a191d08fd573c210050c32.js",
+    "precache-manifest.c10af4c582e1b0ef3ceadb62df537be7.js": "/precache-manifest.c10af4c582e1b0ef3ceadb62df537be7.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.5cfadf91.chunk.css.map": "/static/css/main.5cfadf91.chunk.css.map",
+    "static/css/main.439152d5.chunk.css.map": "/static/css/main.439152d5.chunk.css.map",
+    "static/media/ifest-logo.png": "/static/media/ifest-logo.59733a67.png",
     "static/media/tim_realistic.pdf": "/static/media/tim_realistic.9ed32cc7.pdf"
   }
 }
