@@ -11,6 +11,8 @@ import {
   Button,
 } from 'react-bootstrap'
 
+import Logo from "./assets/img/ifest-logo.png"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faGlobeAsia,
@@ -24,22 +26,21 @@ import './App.scss';
  * List of sidebar buttons
  * Arguments: link, name, icon, component (in this order)
 **/
-const links = [
-  new Sidebar.ButtonPrototype("dashboard", "Dashboard", <FontAwesomeIcon icon={faGlobeAsia} />, <Dashboard />),
-  new Sidebar.ButtonPrototype("analysis", "Analysis", <FontAwesomeIcon icon={faChartArea} />, <Analysis />),
-  new Sidebar.ButtonPrototype("about", "About", <FontAwesomeIcon icon={faInfoCircle} />, <About />),
-]
 
 const App = () => {
+  const links = [
+    new Sidebar.ButtonPrototype("dashboard", "Dashboard", <FontAwesomeIcon icon={faGlobeAsia} />, <Dashboard />),
+    new Sidebar.ButtonPrototype("analysis", "Analysis", <FontAwesomeIcon icon={faChartArea} />, <Analysis />),
+    new Sidebar.ButtonPrototype("about", "About", <FontAwesomeIcon icon={faInfoCircle} />, <About />),
+  ]
+  
   const [currentPage, setPage] = useState(links[0]);
-
-  const handleChange = link => setPage(link)
-
+  
   return (
     <div className="root">
       <Sidebar.Container>
         <Sidebar.Logo>
-          <img alt="Logo" src="https://hasilun.puspendik.kemdikbud.go.id/assets/images/logo_kemdikbud.png" />
+          <img alt="Logo" src={Logo} />
         </Sidebar.Logo>
         {
           links.map((link, index) => (
@@ -47,7 +48,7 @@ const App = () => {
               <Button
                 className="sidebar-button"
                 variant="info"
-                onClick={() => handleChange(link)}
+                onClick={() => setPage(link)}
                 active={link.name === currentPage.name}
               >
                 {link.icon}
